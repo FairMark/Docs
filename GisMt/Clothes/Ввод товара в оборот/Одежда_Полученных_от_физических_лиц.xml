@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vvod_individuals action_id="5.3" version="3">
+    <trade_participant_inn>1111111111</trade_participant_inn>
+    <!--Optional:-->
+    <product_receiving_date>12.04.2019</product_receiving_date>
+    <products_list>
+        <!--1 or more repetitions:-->
+        <product>
+            <!--Optional:-->
+            <kit><![CDATA[0000000000000000000000000000000]]></kit>
+            <product_receiving_date>12.04.2019</product_receiving_date>
+        </product>
+        <product>
+            <!--Optional:-->
+            <kitu>000000000000000000</kitu>
+            <product_receiving_date>12.04.2019</product_receiving_date>
+        </product>
+    </products_list>
+</vvod_individuals>

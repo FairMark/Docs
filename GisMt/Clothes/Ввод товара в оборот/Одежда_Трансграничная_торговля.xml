@@ -1,0 +1,21 @@
+<introduce_crossborder version="3">
+    <trade_participant_inn>1111111111</trade_participant_inn>
+    <sender_tax_number>2222222222</sender_tax_number>
+    <exporter_name>ООО Стильные шляпы</exporter_name>
+    <country_oksm>112</country_oksm>
+    <import_date>2019-01-01</import_date>
+    <primary_document_number>123</primary_document_number>
+    <primary_document_date>2019-01-01</primary_document_date>
+    <products_list>
+        <product>
+            <ki>0104630033880100211AREwAwLETM7g240ffd0</ki>
+            <tnved_code>6401921000</tnved_code>
+            <cost>1000</cost>
+            <vat_value>0</vat_value>
+            <certificate_type>CONFORMITY_CERTIFICATE</certificate_type>
+            <certificate_number>123</certificate_number>
+            <certificate_date>2019-01-01</certificate_date>
+            <vsd_number>9CDA-5D57-FAEA-46DD-B94D-3DCC-AC70-1091</vsd_number>
+        </product>
+    </products_list>
+</introduce_crossborder>

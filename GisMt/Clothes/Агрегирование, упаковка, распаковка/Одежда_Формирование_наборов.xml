@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit_pack document_id="unit_pack_7FFF90D5-4785-7EC9-899E-534A7BAA2B71" VerForm="1.03" file_date_time="2019-04-12T11:07:45+03:00" VerProg="VerProg1">
+    <Document operation_date_time="2019-06-05T14:28:14+03:00" document_number="157743-20199">
+        <organisation>
+            <id_info>
+                <LP_info org_name="ООО ТорМаг" LP_TIN="5834052090" RRC="504801001" />
+            </id_info>
+            <Address>
+                <location_address country_code="643" text_address="142305" />
+            </Address>
+            <contacts phone_number="123456789" email="22@mail.ru" />
+        </organisation>
+        <pack_content>
+            <pack_code>000000000000000000</pack_code>
+            <cis>000000000000000001</cis>
+            <cis>00000000000000000000000000000000000000</cis>
+            <cis>00000000000000000000000000000000000001</cis>
+            <cis>00000000000000000000000000000000000002</cis>
+            <cis>010466007901460321&amp;%*^$!?"'()*+-=/,;.:&lt;&gt;_1</cis>
+            <cis><![CDATA[010466007901460321&%*^$!?"'()*+-=/,;.:<>_2]]></cis>
+        </pack_content>
+        <pack_content>
+            <pack_code>000000000000000001</pack_code>
+            <cis>000000000000000002</cis>
+        </pack_content>
+    </Document>
+</unit_pack>

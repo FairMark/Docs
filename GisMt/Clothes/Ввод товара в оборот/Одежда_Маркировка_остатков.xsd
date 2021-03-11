@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../LP_base_types_v2.xsd"/>
+    <xs:element name="vvod_ostatky" type="vvod_ostatky"/>
+    <xs:complexType name="vvod_ostatky">
+        <xs:annotation>
+            <xs:documentation>Ввод в оборот. Остатки</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="trade_participant_inn" type="inn_type">
+                <xs:annotation>
+                    <xs:documentation>ИНН участника оборота</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="products_list">
+                <xs:annotation>
+                    <xs:documentation>Параметры товаров</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="product" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>Параметры товара</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="ki" type="kit_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>КИ</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="kitu" type="kitu_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>КИТУ</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="country" type="oksm_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Страна производства</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="declaration_date" type="date_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Дата регистрации ДТ</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="declaration_number" type="string255_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Регистрационный номер ДТ</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="certificate_type" type="certificate_type_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Вид документа обязательной сертификации</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="certificate_number" type="string255_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Номер документа обязательной сертификации</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="certificate_date" type="date_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Дата документа обязательной сертификации</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="action_id" type="xs:string" use="required" fixed="5.4"/>
+        <xs:attribute name="version" type="xs:int" use="required" fixed="2"/>
+    </xs:complexType>
+</xs:schema>

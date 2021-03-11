@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vvod_import_fts version="1">
+    <trade_participant_inn>7724211288</trade_participant_inn>
+    <declaration_number>11111111/222222/3333333</declaration_number>
+    <declaration_date>2020-03-01</declaration_date>
+    <products_list>
+        <product>
+            <ki>11111111111111111111111111111111111111</ki>
+            <color>RED</color>
+            <product_size>20.5</product_size>
+        </product>
+        <product>
+            <ki>22222222222222222222222222222222222222</ki>
+            <color>RED</color>
+            <product_size>20.5</product_size>
+        </product>
+        <product>
+            <kitu>333333333333333333</kitu>
+            <color>RED</color>
+            <product_size>20.5</product_size>
+            <children>
+                <product>
+                    <ki>00000000000000000000000000000000000001</ki>
+                    <color>RED</color>
+                    <product_size>20.5</product_size>
+                </product>
+            </children>
+        </product>
+        <product>
+            <atk>4444444444444444444444444</atk>
+            <color>RED</color>
+            <product_size>20.5</product_size>
+            <children>
+                <product>
+                    <ki>00000000000000000000000000000000000002</ki>
+                    <color>RED</color>
+                    <product_size>20.5</product_size>
+                </product>
+            </children>
+        </product>
+    </products_list>
+
+</vvod_import_fts>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reaggregation action_id="32" version="2">
+    <trade_participant_inn>0000000000</trade_participant_inn>
+    <reaggregation_type>REMOVING</reaggregation_type>
+    <reaggregating_kitu>000000000000000000</reaggregating_kitu>
+    <product_list>
+        <packing_product>
+            <kit><![CDATA[00000000000000000000000000000000000000]]></kit>
+        </packing_product>
+        <packing_product>
+            <kit><![CDATA[11111111111111111111111111111111111111]]></kit>
+        </packing_product>
+        <packing_product>
+            <kitu><![CDATA[222222222222222222]]></kitu>
+        </packing_product>
+    </product_list>
+</reaggregation>

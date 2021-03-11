@@ -1,0 +1,18 @@
+<km_cancellation action_id="14" version="2">
+    <trade_participant_inn>0000000000</trade_participant_inn>
+    <cancellation_reason>KM_SPOILED</cancellation_reason>
+    <cancellation_document_date>12.04.2019</cancellation_document_date>
+    <cancellation_document_number>123</cancellation_document_number>
+    <km_list>
+        <!--1 or more repetitions:-->
+        <km>
+            <kit><![CDATA[00000000000000000000000000000000000000]]></kit>
+            <cancellation_reason>KM_LOST</cancellation_reason>
+        </km>
+        <km>
+            <kitu>000000000000000000</kitu>
+            <cancellation_reason>KM_LOST</cancellation_reason>
+        </km>
+
+    </km_list>
+</km_cancellation>

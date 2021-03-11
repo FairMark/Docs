@@ -1,0 +1,20 @@
+<withdrawal action_id="15" version="4">
+<trade_participant_inn>7724211288</trade_participant_inn>
+<withdrawal_type>RETAIL</withdrawal_type>
+<withdrawal_date>01.01.2019</withdrawal_date>
+<primary_document_type>RECEIPT</primary_document_type>
+<primary_document_number>PDN</primary_document_number>
+<primary_document_date>01.01.2019</primary_document_date>
+<primary_document_custom_name>custom</primary_document_custom_name>
+<kkt_number>kkt_number</kkt_number>
+<products_list>
+    <product>
+        <ki>00000000000000000000000000000000000000</ki>
+        <cost>1000</cost>
+        <primary_document_type>RECEIPT</primary_document_type>
+        <primary_document_number>PDN</primary_document_number>
+        <primary_document_date>01.01.2019</primary_document_date>
+        <primary_document_custom_name>custom</primary_document_custom_name>
+    </product>
+</products_list>
+</withdrawal>

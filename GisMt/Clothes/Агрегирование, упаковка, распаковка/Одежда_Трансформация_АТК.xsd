@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../LP_base_types_v2.xsd"/>
+    <xs:element name="atk_transformation" type="atk_transformation"/>
+    <xs:complexType name="atk_transformation">
+        <xs:annotation>
+            <xs:documentation>Трансформация агрегированного таможенного кода</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="trade_participant_inn" type="inn_type">
+                <xs:annotation>
+                    <xs:documentation>ИНН участника оборота</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="transformation_type" type="transformation_type_type">
+                <xs:annotation>
+                    <xs:documentation>Тип трансформации</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="atk" type="atk_type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Трансформируемый агрегированный таможенный код</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="product_list">
+                <xs:annotation>
+                    <xs:documentation>Список кодов идентификации</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="product" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>Код идентификации товара</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="ki" type="ki_type">
+                                        <xs:annotation>
+                                            <xs:documentation>КИ</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="version" type="xs:string" use="required" fixed="1"/>
+    </xs:complexType>
+</xs:schema>

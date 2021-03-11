@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<order xmlns="urn:oms.order" xsi:schemaLocation="urn:oms.order schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <milk>
+    <productGroupe>milk</productGroupe>
+    <contactPerson>string</contactPerson>
+    <releaseMethodType>PRODUCTION</releaseMethodType>
+    <createMethodType>SELF_MADE</createMethodType>
+    <productionOrderId>string</productionOrderId>
+    <products>
+      <product>
+        <gtin>04640043460186</gtin>
+        <quantity>1</quantity>
+        <serialNumberType>SELF_MADE</serialNumberType>
+        <serialNumbers>
+          <serialNumber>26345</serialNumber>
+        </serialNumbers>
+        <stickerId></stickerId>
+        <cisType>UNIT</cisType>
+        <templateId>20</templateId>
+      </product>
+	  <product>
+        <gtin>04640043460193</gtin>
+        <quantity>1</quantity>
+        <serialNumberType>SELF_MADE</serialNumberType>
+        <serialNumbers>
+          <serialNumber>25045</serialNumber>
+        </serialNumbers>
+        <stickerId></stickerId>
+        <cisType>UNIT</cisType>
+        <templateId>20</templateId>
+		</product>
+        <product>
+        <gtin>04640043460261</gtin>
+        <quantity>1</quantity>
+        <serialNumberType>SELF_MADE</serialNumberType>
+        <serialNumbers>
+          <serialNumber>2534545656789</serialNumber>
+        </serialNumbers>
+        <stickerId></stickerId>
+        <cisType>UNIT</cisType>
+        <templateId>6</templateId>
+		</product>
+        <product>
+        <gtin>04640043460254</gtin>
+        <quantity>1</quantity>
+        <serialNumberType>SELF_MADE</serialNumberType>
+        <serialNumbers>
+          <serialNumber>2534065486704</serialNumber>
+        </serialNumbers>
+        <stickerId></stickerId>
+        <cisType>UNIT</cisType>
+        <templateId>6</templateId>
+      </product>
+    </products>
+  </milk>
+</order>

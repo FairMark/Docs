@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shipment action_id="10" version="5">
+    <trade_participant_inn_sender>1111111111</trade_participant_inn_sender>
+    <trade_participant_inn_receiver>2222222222</trade_participant_inn_receiver>
+    <transfer_date>13.11.2020</transfer_date>
+    <move_document_number>123</move_document_number>
+    <move_document_date>13.11.2020</move_document_date>
+    <turnover_type>SELLING</turnover_type>
+    <to_not_participant>true</to_not_participant>
+    <products_list>
+        <!-- 1 or more repetitions: -->
+        <product>
+            <kitu><![CDATA[4w3y8oc945789*&*--*&ihls5uo8mm84y489GHFJ---ty894yt4tvstvv4t4vs4e4s4FHGHFJH]]></kitu>
+            <cost>330305</cost>
+            <vat_value>27085</vat_value>
+            <!-- Optional: -->
+            <children_products_list>
+                <!-- 1 or more repetitions: -->
+                <product>
+                    <ki><![CDATA[0000000000000000000000000000000]]></ki>
+                    <cost>3303</cost>
+                    <vat_value>270</vat_value>
+                </product>
+            </children_products_list>
+        </product>
+    </products_list>
+</shipment>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<remark version="6">
+    <trade_participant_inn>7805680263</trade_participant_inn>
+    <remark_date>03.12.2020</remark_date>
+    <remark_cause>EEC_EXPORT_RETURN</remark_cause>
+    <products_list>
+        <!--1 or more repetitions:-->
+        <product>
+            <!-- <last_ki><![CDATA[0104640043460650217cyDIM&WGeOH+]]></last_ki> -->
+            <new_ki><![CDATA[010464004346023021IriDDSqYN=BaM]]></new_ki>
+            <tnved_code_10>6401929000</tnved_code_10>
+            <production_country>156</production_country>
+            <color>Красный</color>
+            <product_size>15-17</product_size>
+            <remark_date>03.12.2020</remark_date>
+            <paid>true</paid>
+            <primary_document_type>UTD</primary_document_type>
+            <primary_document_custom_name>Товарная накладная # 35</primary_document_custom_name>
+            <primary_document_number>156_8878</primary_document_number>
+            <!-- Optional: -->
+            <primary_document_date>02.02.2020</primary_document_date>
+            <!-- Optional: -->
+            <certificate_type>CONFORMITY_CERTIFICATE</certificate_type>
+            <!--Optional:-->
+            <certificate_number>certnum</certificate_number>
+            <!--Optional:-->
+            <certificate_date>03.03.2020</certificate_date>
+        </product>
+    </products_list>
+</remark>

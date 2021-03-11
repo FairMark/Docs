@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shipment action_id="10" version="5">
+    <trade_participant_inn_sender>0000000000</trade_participant_inn_sender>
+    <trade_participant_inn_receiver>0000000000</trade_participant_inn_receiver>
+    <transfer_date>01.01.2020</transfer_date>
+    <move_document_number>12345678901234567890</move_document_number>
+    <move_document_date>01.01.2020</move_document_date>
+    <turnover_type>SELLING</turnover_type>
+    <!--Optional:-->
+    <withdrawal_type>STATE_ENTERPRISE</withdrawal_type>
+    <!--Optional:-->
+    <withdrawal_date>01.01.2020</withdrawal_date>
+    <!--Optional:-->
+    <st_contract_id>string</st_contract_id>
+    <products_list>
+        <!--1 or more repetitions:-->
+        <product>
+            <!--Optional:-->
+            <ki><![CDATA[00000000000000000000000000000]]></ki>
+            <!--Optional:-->
+            <cost>100000</cost>
+            <!--Optional:-->
+            <vat_value>100000</vat_value>
+        </product>
+    </products_list>
+</shipment>

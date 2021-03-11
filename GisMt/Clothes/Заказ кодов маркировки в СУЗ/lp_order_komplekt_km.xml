@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:oms.order" xsi:schemaLocation="urn:oms.order order-v5.11.xsd">
+	<lp>
+		<productGroupe>lp</productGroupe>
+		<contactPerson>String</contactPerson>
+		<releaseMethodType>IMPORT</releaseMethodType>
+		<createMethodType>SELF_MADE</createMethodType>
+		<productionOrderId>63b5d1cd-919b-4cef-b117-2ce59059bc33</productionOrderId>
+		<products>
+			<product>
+				<gtin>04640043461749</gtin>
+				<quantity>7</quantity>
+				<serialNumberType>OPERATOR</serialNumberType>
+				<cisType>BUNDLE</cisType>
+				<templateId>10</templateId>
+			</product>
+		</products>
+	</lp>
+</order>

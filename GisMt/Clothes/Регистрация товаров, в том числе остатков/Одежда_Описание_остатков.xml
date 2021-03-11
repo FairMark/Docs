@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ost_description version="2" action_id="33.1">
+    <trade_participant_inn>1111111111</trade_participant_inn>
+    <products_list>
+        <product>
+            <tnved_code_2>00</tnved_code_2>
+            <brand>trademark</brand>
+            <name>product_name</name>
+            <product_gender>MALE</product_gender>
+            <release_method>PRODUCED_IN_RF</release_method>
+            <consumer_age>BABY</consumer_age>
+            <model>model</model>
+        </product>
+    </products_list>
+</ost_description>

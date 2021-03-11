@@ -1,0 +1,1517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by TeaM DJiNN (TeaM DJiNN) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:oms.order" targetNamespace="urn:oms.order" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="order">
+		<xs:annotation>
+			<xs:documentation>Заказ кодов маркировки</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="lp" type="OrderLpType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Предметы одежды, белье постельное, столовое, туалетное и кухонное»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="shoes" type="OrderShoesType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Обувные товары»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="electronics" type="OrderElectronicsType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Фотокамеры (кроме кинокамер), фотовспышки и лампы-вспышки»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tires" type="OrderTiresType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Шины и покрышки пневматические резиновые новые»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="perfumery" type="OrderPerfumeryType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Духи и туалетная вода»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="bicycle" type="OrderBicycleType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Велосипеды и велосипедные рамы»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="wheelchairs" type="OrderWheelchairsType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Кресла коляски»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="milk" type="OrderMilkType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Молочные продукты»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tobacco" type="OrderTobaccoType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Табачная продукция»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="pharma" type="OrderPharmaType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Лекарственные препараты для медицинского применения»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="otp" type="OrderOtpType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Альтернативная табачная продукция»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="water" type="OrderWaterType">
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Питьевая вода»</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<!-- simpleType -->
+	<xs:simpleType name="serialNumberType">
+		<xs:annotation>
+			<xs:documentation>Способ формирования серийного номера. Самостоятельно - SELF_MADE, 	Оператором - OPERATOR </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SELF_MADE"/>
+			<xs:enumeration value="OPERATOR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="releaseMethodType">
+		<xs:annotation>
+			<xs:documentation>Способ выпуска товаров в оборот.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PRODUCTION"/>
+			<xs:enumeration value="IMPORT"/>
+			<xs:enumeration value="REMAINS"/>
+			<xs:enumeration value="CROSSBORDER"/>
+			<xs:enumeration value="REMARK"/>
+			<xs:enumeration value="COMISSION"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="createMethodType">
+		<xs:annotation>
+			<xs:documentation>Способ изготовления.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SELF_MADE"/>
+			<xs:enumeration value="CEM"/>
+			<xs:enumeration value="CM"/>
+			<xs:enumeration value="CL"/>
+			<xs:enumeration value="CA"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="productGroupType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="lp"/>
+			<xs:enumeration value="shoes"/>
+			<xs:enumeration value="tobacco"/>
+			<xs:enumeration value="perfumery"/>
+			<xs:enumeration value="tires"/>
+			<xs:enumeration value="electronics"/>
+			<xs:enumeration value="pharma"/>
+			<xs:enumeration value="milk"/>
+			<xs:enumeration value="bicycle"/>
+			<xs:enumeration value="wheelchairs"/>
+			<xs:enumeration value="otp"/>
+			<xs:enumeration value="water"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="cisType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UNIT"/>
+			<xs:enumeration value="BUNDLE"/>
+			<xs:enumeration value="SET"/>
+			<xs:enumeration value="GROUP"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- OrderProducts -->
+	<xs:complexType name="OrderProduct">
+		<xs:sequence>
+			<xs:element name="gtin">
+				<xs:annotation>
+					<xs:documentation>Код товара (GTIN)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="14"/>
+						<xs:pattern value="[0-9]{14}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="quantity">
+				<xs:annotation>
+					<xs:documentation>Количество кодов маркировки</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="150000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="serialNumberType">
+				<xs:annotation>
+					<xs:documentation>Способ генерации серийных номеров.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Способ формирования серийного номера. Самостоятельно - SELF_MADE, 	Оператором - OPERATOR </xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="SELF_MADE"/>
+						<xs:enumeration value="OPERATOR"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="serialNumbers" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Массив серийных номеров. Это поле указывается в случае, если значение «serialNumberType = SELF_MADE» </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence maxOccurs="150000">
+						<xs:element name="serialNumber" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="stickerId" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Идентификатор этикетки</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrderProductLp">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="cisType">
+						<xs:annotation>
+							<xs:documentation>Тип КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="cisType">
+								<xs:enumeration value="UNIT"/>
+								<xs:enumeration value="BUNDLE"/>
+								<xs:enumeration value="SET"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductShoes">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductTobacco">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="mrp">
+						<xs:annotation>
+							<xs:documentation>Максимальная розничная цена</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:minLength value="4"/>
+								<xs:maxLength value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductElectronics">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="cisType">
+						<xs:annotation>
+							<xs:documentation>Тип КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="cisType">
+								<xs:enumeration value="UNIT"/>
+								<xs:enumeration value="BUNDLE"/>
+								<xs:enumeration value="SET"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="8"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductPerfumery">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="cisType">
+						<xs:annotation>
+							<xs:documentation>Тип КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="cisType">
+								<xs:enumeration value="UNIT"/>
+								<xs:enumeration value="BUNDLE"/>
+								<xs:enumeration value="SET"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="9"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductBicycle">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="11"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductWheelchairs">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="12"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductMilk">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="cisType" default="UNIT">
+						<xs:annotation>
+							<xs:documentation>Тип КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="cisType">
+								<xs:enumeration value="UNIT"/>
+								<xs:enumeration value="SET"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="20"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:element name="expDate">
+							<xs:annotation>
+								<xs:documentation>Дата окончания срока годности продукции (срок хранения более 72 часов),  ГГММДД (YYMMDD)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="([0-9]{2})(0[1-9]|1[012])(0[1-9]|1[0-9]|2[0-9]|3[01])"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="expDate72">
+							<xs:annotation>
+								<xs:documentation>Дата окончания срока годности продукции (срок хранения более 72 часов), ГГММДДЧЧММ (YYMMDDHHMM)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="([0-9]{2})(0[1-9]|1[012])(0[1-9]|1[0-9]|2[0-9]|3[01])(([0,1][0-9])|(2[0-3]))[0-5][0-9]"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductPharma">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="5"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductTires">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="7"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductOtp">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="cisType">
+						<xs:annotation>
+							<xs:documentation>Тип КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="cisType">
+								<xs:enumeration value="UNIT"/>
+								<xs:enumeration value="GROUP"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="14"/>
+								<xs:enumeration value="15"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderProductWater">
+		<xs:complexContent>
+			<xs:extension base="OrderProduct">
+				<xs:sequence>
+					<xs:element name="templateId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор шаблона КМ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="16"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Orders -->
+	<xs:complexType name="OrderType" abstract="true"/>
+	<xs:complexType name="OrderLpType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Предметы одежды, белье постельное, столовое, туалетное и кухонное»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="lp"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+								<xs:enumeration value="REMARK"/>
+								<xs:enumeration value="REMAINS"/>
+								<xs:enumeration value="CROSSBORDER"/>
+								<xs:enumeration value="COMISSION"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+								<xs:enumeration value="CEM"/>
+								<xs:enumeration value="CM"/>
+								<xs:enumeration value="CL"/>
+								<xs:enumeration value="CA"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="remainsAvailable" type="xs:boolean" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Признак того, что товар произведен/приобретен до 01.01.2021 года  (даты запрета оборота немаркированных товаров по данной ТГ). Является обязательным при указании способа ввода в оборот "REMAINS" </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="remainsImport" type="xs:boolean" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Признак импортного товара - ввезенного в РФ после 01.01.2021 года (даты запрета оборота немаркированных товаров по данной ТГ). Является обязательным при указании способа ввода в оборот "REMAINS" </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов </xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence maxOccurs="10">
+								<xs:element name="product" type="OrderProductLp">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderElectronicsType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>Категория товарной группы «Фотокамеры (кроме кинокамер), фотовспышки и лампы-вспышки»</xs:documentation>
+					</xs:annotation>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Фотокамеры (кроме кинокамер), фотовспышки и лампы-вспышки»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="electronics"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+								<xs:enumeration value="REMARK"/>
+								<xs:enumeration value="CROSSBORDER"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+								<xs:enumeration value="CEM"/>
+								<xs:enumeration value="CM"/>
+								<xs:enumeration value="CL"/>
+								<xs:enumeration value="CA"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов  </xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence maxOccurs="10">
+								<xs:element name="product" type="OrderProductElectronics">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderShoesType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Обувные товары»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="shoes"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+								<xs:enumeration value="REMARK"/>
+								<xs:enumeration value="CROSSBORDER"/>
+								<xs:enumeration value="COMISSION"/>			
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+								<xs:enumeration value="CEM"/>
+								<xs:enumeration value="CM"/>
+								<xs:enumeration value="CL"/>
+								<xs:enumeration value="CA"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов </xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="10">
+								<xs:element name="product" type="OrderProductShoes">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderTiresType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Шины и покрышки пневматические резиновые новые»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="tires"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+								<xs:enumeration value="REMARK"/>
+								<xs:enumeration value="REMAINS"/>
+								<xs:enumeration value="CROSSBORDER"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+								<xs:enumeration value="CEM"/>
+								<xs:enumeration value="CM"/>
+								<xs:enumeration value="CL"/>
+								<xs:enumeration value="CA"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов  </xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="10">
+								<xs:element name="product" type="OrderProductTires">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderPerfumeryType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Духи и туалетная вода»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="perfumery"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+								<xs:enumeration value="REMARK"/>
+								<xs:enumeration value="REMAINS"/>								
+								<xs:enumeration value="CROSSBORDER"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+								<xs:enumeration value="CEM"/>
+								<xs:enumeration value="CM"/>
+								<xs:enumeration value="CL"/>
+								<xs:enumeration value="CA"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="10">
+								<xs:element name="product" type="OrderProductPerfumery">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderBicycleType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Велосипеды и велосипедные рамы»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="bicycle"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+								<xs:enumeration value="REMARK"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+								<xs:enumeration value="CEM"/>
+								<xs:enumeration value="CM"/>
+								<xs:enumeration value="CL"/>
+								<xs:enumeration value="CA"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="10">
+								<xs:element name="product" type="OrderProductBicycle">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderWheelchairsType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Кресла коляски»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="wheelchairs"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+								<xs:enumeration value="REMARK"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+								<xs:enumeration value="CEM"/>
+								<xs:enumeration value="CM"/>
+								<xs:enumeration value="CL"/>
+								<xs:enumeration value="CA"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="10">
+								<xs:element name="product" type="OrderProductWheelchairs">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderMilkType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Молочные продукты»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="milk"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+								<xs:enumeration value="CROSSBORDER"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+								<xs:enumeration value="CEM"/>
+								<xs:enumeration value="CM"/>
+								<xs:enumeration value="CL"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="10">
+								<xs:element name="product" type="OrderProductMilk">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderPharmaType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Лекарственные препараты для медицинского применения»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="pharma"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="subjectId">
+						<xs:annotation>
+							<xs:documentation>Субъект обращения. Номер, присвоенный при регистрации в ИС МДЛП</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9A-Fa-f]{8}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="freeCode" type="xs:boolean">
+						<xs:annotation>
+							<xs:documentation>Признак оплаты эмиссии КМ.
+true - КМ не подлежит оплате;
+false - КМ подлежит оплате.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="paymentType">
+						<xs:annotation>
+							<xs:documentation>Тип оплаты. Допустимые значения:
+1-Оплата по эмиссии;
+2-Оплата по нанесению </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:minInclusive value="1"/>
+								<xs:maxInclusive value="2"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список товаров</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="1">
+								<xs:element name="product" type="OrderProductPharma">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderTobaccoType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Табачная продукция»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="tobacco"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="factoryId" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производства. (Глобальный номер места нахождения)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="factoryName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Наименование производства.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="factoryAddress" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Адрес производства.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="factoryCountry" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Страна производителя</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="productionLineId" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственной линии.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="productCode" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Код продукта (SKU)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="productDescription" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Описание продукта</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="poNumber" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Номер производственного заказа</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="expectedStartDate" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Дата начала производства продукции по данному заказу.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="10">
+								<xs:element name="product" type="OrderProductTobacco">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderWaterType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Питьевая вода»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="water"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+								<xs:enumeration value="CEM"/>
+								<xs:enumeration value="CM"/>
+								<xs:enumeration value="CL"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="10">
+								<xs:element name="product" type="OrderProductWater">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderOtpType">
+		<xs:complexContent>
+			<xs:extension base="OrderType">
+				<xs:sequence>
+					<xs:element name="serviceProviderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор площадки Сервис-провайдера </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productGroupe">
+						<xs:annotation>
+							<xs:documentation>Категория товарной группы «Альтернативная табачная продукция»</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="productGroupType">
+								<xs:enumeration value="otp"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="contactPerson" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Контактное лицо</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="releaseMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ выпуска товаров в оборот</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="releaseMethodType">
+								<xs:enumeration value="PRODUCTION"/>
+								<xs:enumeration value="IMPORT"/>
+								<xs:enumeration value="REMAINS"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createMethodType">
+						<xs:annotation>
+							<xs:documentation>Способ изготовления СИ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="createMethodType">
+								<xs:enumeration value="SELF_MADE"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="productionOrderId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственного заказа.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="factoryId" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производства. (Глобальный номер места нахождения)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="factoryName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Наименование производства.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="factoryAddress" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Адрес производства.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="factoryCountry" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Страна производителя</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="productionLineId" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Идентификатор производственной линии.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="productCode" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Код продукта (SKU)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="productDescription" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Описание продукта</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="expectedStartDate" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Дата начала производства продукции по данному заказу.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="poNumber" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Номер производственного заказа</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="products">
+						<xs:annotation>
+							<xs:documentation>Список продуктов</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="10">
+								<xs:element name="product" type="OrderProductOtp">
+									<xs:annotation>
+										<xs:documentation>Продукт</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

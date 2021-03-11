@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../../commons/LP_base_types.xsd"/>
+    <xs:element name="introduce_crossborder" type="introduce_crossborder_type"/>
+    <xs:complexType name="introduce_crossborder_type">
+        <xs:annotation>
+            <xs:documentation>Ввод в оборот (трансграничная торговля)</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="trade_participant_inn" type="inn_type">
+                <xs:annotation>
+                    <xs:documentation>ИНН участника оборота</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="sender_tax_number" type="string255_type">
+                <xs:annotation>
+                    <xs:documentation>Номер налогоплательщика отправителя</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="exporter_name" type="string255_type">
+                <xs:annotation>
+                    <xs:documentation>Наименование производственной площадки (экспортера)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="country_oksm" type="oksm_type">
+                <xs:annotation>
+                    <xs:documentation>Код страны согласно ОКСМ</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="import_date" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation>Дата импорта</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="primary_document_number" type="string255_type">
+                <xs:annotation>
+                    <xs:documentation>Номер первичного документа, подтверждающего перемещение товара</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="primary_document_date" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation>Дата первичного документа, подтверждающего перемещение товара</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="vsd_number" type="vsd_number_type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор ВСД. Только для ТГ Молоко</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="products_list">
+                <xs:annotation>
+                    <xs:documentation>Список товаров</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="product" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>Параметры товара</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="ki" type="ki_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Код идентификации единицы товара (КИ)</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="kitu" type="kitu_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Код идентификации транспортной упаковки (КИТУ)
+                                            </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="tnved_code" type="tnved_code_type">
+                                        <xs:annotation>
+                                            <xs:documentation>Код ТН ВЭД ЕАС товара</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="cost" type="price_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Цена за единицу</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="vat_value" type="price_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Сумма НДС</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="certificate_type" type="certificate_type_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Вид документа, подтверждающего соответствие
+                                            </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="certificate_number" type="string255_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Номер документа, подтверждающего соответствие
+                                            </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="certificate_date" type="xs:date" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Дата документа, подтверждающего соответствие
+                                            </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="vsd_number" type="vsd_number_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Идентификатор ВСД. Только для ТГ Молоко</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="children" minOccurs="0"
+                                                type="children_introduce_crossborder_type">
+                                        <xs:annotation>
+                                            <xs:documentation>Список товаров в составе транспортной упаковки для ввода в
+                                                оборот
+                                            </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="version" type="xs:int" use="required" fixed="3"/>
+    </xs:complexType>
+</xs:schema>

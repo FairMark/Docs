@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atk_disaggregation version="1">
+    <trade_participant_inn>1111111111</trade_participant_inn>
+    <product_list>
+        <product>
+            <atk>1111111111111111111111111</atk>
+        </product>
+        <product>
+            <atk>2222222222222222222222222</atk>
+        </product>
+    </product_list>
+</atk_disaggregation>

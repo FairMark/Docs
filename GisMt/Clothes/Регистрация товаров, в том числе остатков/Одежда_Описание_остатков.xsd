@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../LP_base_types_v2.xsd"/>
+    <xs:element name="ost_description" type="ost_description"/>
+    <xs:complexType name="ost_description">
+        <xs:annotation>
+            <xs:documentation>Описание остатков товара</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="trade_participant_inn" type="inn_type">
+                <xs:annotation>
+                    <xs:documentation>ИНН участника оборота</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="products_list">
+                <xs:annotation>
+                    <xs:documentation>Параметры товаров</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="product" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>Параметры товара</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="tnved_code_2" type="tnved_code_2_type">
+                                        <xs:annotation>
+                                            <xs:documentation>Код товарной номенклатуры (2 знака)</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="brand" type="string255_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Торговая Марка / Бренд</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="name" type="string255_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Наименование товара. Только для товарной группы "Фотокамеры"</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="product_gender" type="product_gender_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Целевой пол. Только для товарной группы "Одежда"</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="release_method" type="release_method_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Способ ввода товара в оборот. Только для товарных групп "Белье", "Одежда", "Обувь".</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="consumer_age" type="age_category_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Возрастная категория. Только для группы ТН ВЭД 63.</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="model" type="string50_type" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>Модель / артикул производителя. Только для товарной группы "Шины"</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="action_id" type="xs:string" use="required" fixed="33.1"/>
+        <xs:attribute name="version" type="xs:int" use="required" fixed="2"/>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../LP_base_types_v2.xsd"/>
+    <xs:element name="atk_disaggregation" type="atk_disaggregation"/>
+    <xs:complexType name="atk_disaggregation">
+        <xs:annotation>
+            <xs:documentation>Дезагрегация агрегированного таможенного кода</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="trade_participant_inn" type="inn_type">
+                <xs:annotation>
+                    <xs:documentation>ИНН участника оборота</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="product_list">
+                <xs:annotation>
+                    <xs:documentation>Список АТК</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="product" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>Код идентификации товара</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="atk" type="atk_type">
+                                        <xs:annotation>
+                                            <xs:documentation>Дезагрегируемый агрегированный таможенный код</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+		<xs:attribute name="version" type="xs:string" use="required" fixed="1"/>
+    </xs:complexType>
+</xs:schema>

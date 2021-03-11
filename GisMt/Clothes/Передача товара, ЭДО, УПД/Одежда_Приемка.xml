@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acceptance action_id="11" version="6">
+    <shipment_id>57250cce-52cf-408b-99ef-39cc239f60fd</shipment_id>
+    <trade_participant_inn_sender>0000000000</trade_participant_inn_sender>
+    <trade_participant_inn_receiver>0000000000</trade_participant_inn_receiver>
+    <shipment_date>2019-11-18T21:00:00.000Z</shipment_date>
+    <reception_date>2019-11-18T21:00:00.000Z</reception_date>
+    <transfer_date>12.04.2019</transfer_date>
+    <move_document_number>784378438</move_document_number>
+    <move_document_date>12.04.2019</move_document_date>
+    <turnover_type>SELLING</turnover_type>
+    <products_list>
+        <!--1 or more repetitions:-->
+        <product>
+            <ki><![CDATA[000000000000000000000000000000000]]></ki>
+            <accept_type>true</accept_type>
+        </product>
+    </products_list>
+</acceptance>

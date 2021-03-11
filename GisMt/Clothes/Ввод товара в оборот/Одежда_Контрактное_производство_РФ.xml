@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<introduce_contract version="4">
+    <producer_inn>1111111111</producer_inn>
+    <owner_inn>2222222222</owner_inn>
+    <production_date>2019-01-01</production_date>
+    <production_order>CONTRACT_PRODUCTION</production_order>
+    <products_list>
+        <product>
+            <ki>0104630033880100211AREwAwLETM7g240ffd0</ki>
+            <production_date>2019-01-01</production_date>
+            <tnved_code>6401921000</tnved_code>
+            <certificate_type>CONFORMITY_CERTIFICATE</certificate_type>
+            <certificate_number>123</certificate_number>
+            <certificate_date>2019-01-01</certificate_date>
+            <vsd_number>9CDA-5D57-FAEA-46DD-B94D-3DCC-AC70-1091</vsd_number>
+        </product>
+    </products_list>
+    </introduce_contract>

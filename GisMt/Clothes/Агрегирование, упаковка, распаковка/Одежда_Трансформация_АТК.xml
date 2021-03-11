@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atk_transformation version="1">
+    <trade_participant_inn>1111111111</trade_participant_inn>
+    <transformation_type>REMOVING</transformation_type>
+    <atk>1111111111111111111111111</atk>
+    <product_list>
+        <product>
+            <ki>22222222222222222222222222222222222222</ki>
+        </product>
+        <product>
+            <ki>33333333333333333333333333333333333333</ki>
+        </product>
+    </product_list>
+</atk_transformation>

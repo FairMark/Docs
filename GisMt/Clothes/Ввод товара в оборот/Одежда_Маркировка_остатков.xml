@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vvod_ostatky version="2" action_id="5.4">
+    <trade_participant_inn>1111111111</trade_participant_inn>
+    <products_list>
+        <product>
+            <ki><![CDATA[00000000000000000000000000000]]></ki>
+            <country>111</country>
+            <declaration_date>12.04.2019</declaration_date>
+            <declaration_number>123456</declaration_number>
+            <certificate_type>CONFORMITY_CERTIFICATE</certificate_type>
+            <certificate_number>123456</certificate_number>
+            <certificate_date>12.04.2019</certificate_date>
+        </product>
+    </products_list>
+</vvod_ostatky>

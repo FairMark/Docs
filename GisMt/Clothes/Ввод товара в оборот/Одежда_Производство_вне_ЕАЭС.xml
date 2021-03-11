@@ -1,0 +1,17 @@
+<introduce_import version="4">
+    <trade_participant_inn>1111111111</trade_participant_inn>
+    <declaration_date>2019-01-01</declaration_date>
+    <declaration_number>12345678/123456/1234567</declaration_number>
+    <customs_code>12345678</customs_code>
+    <decision_code>10</decision_code>
+    <products_list>
+        <product>
+            <ki>0104630033880100211AREwAwLETM7g240ffd0</ki>
+            <certificate_type>CONFORMITY_CERTIFICATE</certificate_type>
+            <certificate_number>123</certificate_number>
+            <certificate_date>2019-01-01</certificate_date>
+            <tnved_code>6401921000</tnved_code>
+            <vsd_number>9CDA-5D57-FAEA-46DD-B94D-3DCC-AC70-1091</vsd_number>
+        </product>
+    </products_list>
+</introduce_import>

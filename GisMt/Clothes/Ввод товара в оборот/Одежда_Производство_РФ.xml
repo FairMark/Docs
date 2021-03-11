@@ -1,0 +1,18 @@
+<introduce_rf version="6">
+    <trade_participant_inn>1111111111</trade_participant_inn>
+    <producer_inn>2222222222</producer_inn>
+    <owner_inn>3333333333</owner_inn>
+    <production_date>2019-01-01</production_date>
+    <production_order>OWN_PRODUCTION</production_order>
+    <products_list>
+        <product>
+            <ki>0104630033880100211AREwAwLETM7g240ffd0</ki>
+            <production_date>2019-01-01</production_date>
+            <tnved_code>6401921000</tnved_code>
+            <certificate_type>CONFORMITY_CERTIFICATE</certificate_type>
+            <certificate_number>123</certificate_number>
+            <certificate_date>2019-01-01</certificate_date>
+            <vsd_number>9CDA-5D57-FAEA-46DD-B94D-3DCC-AC70-1091</vsd_number>
+        </product>
+    </products_list>
+</introduce_rf>
